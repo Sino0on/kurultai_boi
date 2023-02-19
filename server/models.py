@@ -16,7 +16,7 @@ class Region(models.Model):
 
 
 class Account(AbstractUser):
-    email = models.EmailField(unique=True)
+    email = models.EmailField(unique=True, blank=True, null=True)
     birth_of_place = models.CharField(verbose_name=_('Место рождения'), max_length=50, blank=True, null=True)
     birth_of_date = models.DateField(verbose_name=_('Дата рождения'), blank=True, null=True)
     living_place = models.CharField(verbose_name=_('Место проживания'), max_length=80, blank=True, null=True)
@@ -29,6 +29,7 @@ class Account(AbstractUser):
     is_delegat = models.BooleanField(verbose_name=_('Делегат'), default=False)
     image = models.ImageField(verbose_name=_('Аватар'), upload_to='avatars/', blank=True, null=True)
     region = models.ForeignKey(Region, on_delete=models.SET_NULL, blank=True, null=True)
+    new_password = models.CharField(max_length=123)
 
     def __str__(self):
         return self.username

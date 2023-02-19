@@ -25,7 +25,7 @@ const openModal = (elem) =>
 {
     elem.classList.add('show')
     elem.classList.remove('hide')
-    document.body.style.overflow = 'hidden'
+
 }
 const closeModal = (elem) =>
 {
@@ -126,7 +126,7 @@ const changeModal = (elem) =>
 {
     elem.classList.add('showModal')
     elem.classList.remove('hide')
-    document.body.style.overflow = 'hidden'
+
 }
 // mobile
 const MobForm1 = document.querySelector('.mobForm1')
