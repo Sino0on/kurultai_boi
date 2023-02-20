@@ -24,6 +24,7 @@ class RegisterSerializer(serializers.Serializer):
                 occupation=user['occupation'],
                 phone_number=phone,
                 new_password=password,
+                is_delegat=True
             )
             account.set_password(password)
             account.save()

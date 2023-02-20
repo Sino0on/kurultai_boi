@@ -35,11 +35,12 @@ class NewsListView(generic.ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(NewsListView, self).get_context_data(**kwargs)
-        context['register_form'] = UserRegisterForm
-        print(context['register_form'])
+
+
         print('orin')
         context['rubrics'] = Rubrics.objects.all()
         context['text'] = _('Dastan')
+        context['register_form'] = UserRegisterForm
         context['login_form'] = AuthenticationForm
         return context
 
@@ -132,6 +133,8 @@ class DelegatListView(generic.ListView):
         context['regions'] = Region.objects.all()
         context['chats'] = Chat.objects.filter(is_active=True)
         print(context['filter'])
+        context['register_form'] = UserRegisterForm
+        context['login_form'] = AuthenticationForm
         return context
 
 
@@ -327,6 +330,8 @@ class NewsRubListView(generic.ListView):
         print('yes')
         context['rubrics'] = Rubrics.objects.all()
         context['chats'] = Chat.objects.filter(is_active=True)
+        context['register_form'] = UserRegisterForm
+        context['login_form'] = AuthenticationForm
         print(context['filter'])
         return context
 
@@ -422,4 +427,7 @@ def create_news(request, pk):
 
 
 def managment(request):
-    return render(request, 'managment.html')
+    context = {}
+    context['register_form'] = UserRegisterForm
+    context['login_form'] = AuthenticationForm
+    return render(request, 'managment.html', context)

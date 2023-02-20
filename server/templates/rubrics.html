@@ -140,13 +140,13 @@
                                     <div class="prevEnd"></div>
                                     <div class="newsEnd">
                                     <div class="like">
-                                        {% if user in news.likes.all %}
+                                        {% if user in i.likes.all %}
                                         <a href="{% url 'vote_like' i.pk %}"><img class="likeActive" src="{% static 'images/news/like.svg' %}" alt=""></a>
                                         {% else %}
                                         <a href="{% url 'vote_like' i.pk %}"><img class="likeActive" src="{% static 'images/news/likeN.svg' %}" alt=""></a>
                                         {% endif %}
                                         <div class="likeCount">
-                                            <span>{{ i.like.count }} {% trans 'людям понравилось' %}</span>
+                                            <span>{% trans 'Понравилось' %} - {{ i.likes.count }}</span>
                                         </div>
                                     </div>
 
@@ -155,17 +155,59 @@
 
                                 </div >
                                 {% endfor %}
-                            <div>
-                                <span>
-                                    {% if page_obj.has_previous %}
-                                        <a href="?page={{ page_obj.previous_page_number }}" >{% trans 'Previous' %}</a>
+
+
+
+
+
+                            <div style="text-align: center;">
+                                <style>
+                                .pagination {
+                                  display: inline-block;
+                                }
+
+                                .pagination a {
+                                  color: white;
+                                  float: left;
+                                  padding: 8px 16px;
+                                  text-decoration: none;
+                                }
+
+                                .pagination a.active {
+                                  background-color: #DC8400;
+                                  color: white;
+                                  border-radius: 5px;
+                                }
+
+                                .pagination a:hover:not(.active) {
+                                  background-color: #ddd;
+                                  border-radius: 5px;
+                                }
+                                </style>
+
+
+
+
+                                <div class="pagination">
+                                  {% if page_obj.has_previous %}
+
+                                        <a href="?page={{ page_obj.previous_page_number }}" >&laquo;</a>
                                     {% endif %}
-                                        <span>{{ page_obj.number }}</span>
+                                        <a href="?page={{ page_obj.number }}" class="active">{{ page_obj.number }}</a>
+
                                     {% if page_obj.has_next %}
-                                    <a href="?page={{ page_obj.next_page_number }}" >{% trans 'Next' %}</a>
+                                    <a href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+
                                     {% endif %}
-                                </span>
+
+
+
+
+                                </div>
                             </div>
+
+
+
                             </div>
 
 

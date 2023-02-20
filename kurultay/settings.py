@@ -98,6 +98,8 @@ WSGI_APPLICATION = 'kurultay.wsgi.application'
 
 AUTH_USER_MODEL = 'server.Account'
 
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240
+
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
@@ -221,9 +223,8 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/'),)
 
-MEDIA_URL = 'media/'
-
-MEDIA_ROOT = (os.path.join(BASE_DIR, 'media/'),)
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
