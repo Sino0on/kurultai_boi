@@ -34,5 +34,5 @@ class RegisterSerializer(serializers.Serializer):
 class UserListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
-        fields = ['first_name', 'username', 'new_password']
+        fields = ['id', 'first_name', 'username', 'new_password']
 

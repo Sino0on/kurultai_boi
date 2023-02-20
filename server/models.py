@@ -132,6 +132,10 @@ class Chat(models.Model):
         default=False,
         blank=True
     )
+    is_aksakal = models.BooleanField(
+        default=False,
+        blank=True
+    )
     users = models.ManyToManyField(Account, related_name='chats_user')
     is_active = models.BooleanField(default=True, blank=True)
 
