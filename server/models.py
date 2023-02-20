@@ -30,6 +30,10 @@ class Account(AbstractUser):
     image = models.ImageField(verbose_name=_('Аватар'), upload_to='avatars/', blank=True, null=True)
     region = models.ForeignKey(Region, on_delete=models.SET_NULL, blank=True, null=True)
     new_password = models.CharField(max_length=123)
+    is_aksakal = models.BooleanField(
+        default=False,
+        blank=True
+    )
 
     def __str__(self):
         return self.username
