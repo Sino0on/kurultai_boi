@@ -39,6 +39,7 @@ class NewsListView(generic.ListView):
 
         print('orin')
         context['rubrics'] = Rubrics.objects.all()
+        context['regions'] = Region.objects.all()
         context['text'] = _('Dastan')
         context['register_form'] = UserRegisterForm
         context['login_form'] = AuthenticationForm
