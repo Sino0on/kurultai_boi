@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 
 
     'ckeditor',
+    'django_filters',
     'ckeditor_uploader',
     'django.contrib.humanize',
     'rosetta',

@@ -174,7 +174,7 @@
                                 }
 
                                 .pagination a {
-                                  color: white;
+                                  color: black;
                                   float: left;
                                   padding: 8px 16px;
                                   text-decoration: none;
@@ -388,10 +388,11 @@
                             </div>
                         </div>
                         <ul>
-                            <a href="{% url 'delegats' %}?is_delegat"><li>{% trans 'Delegates' %}</li></a>
-                            <a href="{% url 'delegats' %}?is_tor_aga"><li>{% trans 'Tor Aga' %}</li></a>
-                            <a href="{% url 'delegats' %}?is_zam"><li>{% trans 'Deputy' %}</li></a>
-                            <a href="{% url 'delegats' %}?is_katchy"><li>{% trans 'Katchy' %}</li></a>
+                            <a href="{% url 'delegats' %}?is_delegat=True"><li>{% trans 'Delegates' %}</li></a>
+                            <a href="{% url 'delegats' %}?is_tor_aga=True"><li>{% trans 'Tor Aga' %}</li></a>
+                            <a href="{% url 'delegats' %}?is_zam=True"><li>{% trans 'Deputy' %}</li></a>
+                            <a href="{% url 'delegats' %}?is_katchy=True"><li>{% trans 'Katchy' %}</li></a>
+                            <a href="{% url 'delegats' %}?is_aksakal=True"><li>{% trans 'Ak-sakal' %}</li></a>
                         </ul>
                        <div class="peopleTitle">
                             <h3>{% trans 'Region' %}</h3>

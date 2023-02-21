@@ -2,7 +2,9 @@ from django.shortcuts import render
 from rest_framework import generics
 from .serializers import *
 from server.models import *
-import django_filters.rest_framework
+from django_filters import rest_framework as filters
+from server.filters import UserFilterForm
+from rest_framework.permissions import IsAdminUser
 
 
 class JsonRegisterView(generics.CreateAPIView):
@@ -12,5 +14,6 @@ class JsonRegisterView(generics.CreateAPIView):
 class UserListView(generics.ListAPIView):
     serializer_class = UserListSerializer
     queryset = Account.objects.filter(is_delegat=True)
-    # filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
-    # filterset_fields = ['first_name', 'username']
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_class = UserFilterForm
+    permission_classes = (IsAdminUser, )

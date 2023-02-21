@@ -148,7 +148,7 @@
 
                             <div class="text"><p>{{ account.descrription }}</p></div>
                             
-
+                {% if user == account %}
                 <div class="line" style="width: 90px;
     height: 6px;
     margin: 0 auto 10px;
@@ -170,7 +170,7 @@
     font-weight: 700;
     font-size: 18.8029px;
     line-height: 22px;
-    color: rgba(0, 0, 0, 0.8);" href="{% url 'settings' %}">Основные</a>
+    color: rgba(0, 0, 0, 0.8);" href="{% url 'settings' %}">{% translate 'Settings' %}</a>
                     </li>
                     <li style="width: 100%;
     display: -webkit-box;
@@ -187,7 +187,7 @@
     font-weight: 700;
     font-size: 18.8029px;
     line-height: 22px;
-    color: rgba(0, 0, 0, 0.8);" href="{% url 'security' %}">Безопасность</a>
+    color: rgba(0, 0, 0, 0.8);" href="{% url 'security' %}">{% translate 'Security' %}</a>
                     </li>
                     <li style="width: 100%;
     display: -webkit-box;
@@ -204,10 +204,10 @@
     font-weight: 700;
     font-size: 18.8029px;
     line-height: 22px;
-    color: rgba(0, 0, 0, 0.8);" href="{% url 'logout' %}">Выйти</a>
+    color: rgba(0, 0, 0, 0.8);" href="{% url 'logout' %}">{% translate 'Logout' %}</a>
                     </li>
                 </ul>
-
+                {% endif %}
                             
                         </div >
 
@@ -260,15 +260,15 @@
                 <ul>
                     <li>
                         <div><img src="{% static 'images/profile/setting.svg" alt=""></div>
-                        <a href="{% url 'settings' %}">Основные</a>
+                        <a href="{% url 'settings' %}">{% translate 'Settings' %}</a>
                     </li>
                     <li>
                         <div><img src="{% static 'images/profile/zamok.svg' %}" alt=""></div>
-                        <a href="{% url 'security' %}">Безопасность</a>
+                        <a href="{% url 'security' %}">{% translate 'Security' %}</a>
                     </li>
                     <li>
                         <div><img src="{% static 'images/profile/getOut.svg' %}" alt=""></div>
-                        <a href="{% url 'logout' %}">Выйти</a>
+                        <a href="{% url 'logout' %}">{% translate 'Logout' %}</a>
                     </li>
                 </ul>
             </div>

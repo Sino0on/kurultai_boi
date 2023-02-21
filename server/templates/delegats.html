@@ -127,6 +127,10 @@
 
                                     <a href="?is_katchy=True"><li>{% trans 'Katchy' %}</li></a>
                                 </ul>
+                                <ul>
+
+                                    <a href="?is_aksakal=True"><li>{% trans 'Ak-sakal' %}</li></a>
+                                </ul>
 
                             </div>
                         </div>
@@ -142,6 +146,11 @@
                         </div>
                         <div class="component">
                             <h2>{% trans 'Delegates' %}</h2>
+                            <form action="" style="text-align: center;">
+                                <h4>Аты Жону</h4>
+                                {{ filter.first_name }}
+                                <button type="submit">{% trans 'Издоо' %}</button>
+                            </form>
                         </div>
                         <div class="delegatsBody">
                             <div class="peoples">
@@ -166,7 +175,7 @@
                                 }
 
                                 .pagination a {
-                                  color: white;
+                                  color: black;
                                   float: left;
                                   padding: 8px 16px;
                                   text-decoration: none;
