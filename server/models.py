@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 STATUS = ((0, "Draft"), (1, "Publish"))
 
@@ -94,7 +95,7 @@ class News(models.Model):
     rubric = models.ForeignKey(Rubrics, on_delete=models.SET_NULL, blank=True, null=True)
     title = models.CharField(max_length=123)
     preview = models.CharField(max_length=244)
-    content = RichTextField()
+    content = RichTextUploadingField()
     voting = models.ForeignKey(Voting, on_delete=models.CASCADE, blank=True, null=True)
     image = models.ImageField(upload_to='news/', blank=True, null=True)
     date = models.DateTimeField(auto_now_add=True)
